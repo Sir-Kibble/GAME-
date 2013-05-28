@@ -19,9 +19,9 @@ public static boolean isRunning = false;
     
   }
   public static void main(String args[]) {
-    Game game = new Game();
+    Editor editor = new Editor();
     JFrame frame = new JFrame();
-    frame.add(game);
+    frame.add(editor);
     frame.pack();
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setTitle("Space Game");
