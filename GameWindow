@@ -2,5 +2,24 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Editor {
-  
+  public Game() {
+  }
+  public void init() {
+  }
+  public void start() {
+  }
+  public void stop() {
+  }
+  public void run() {
+  }
+  public static void main(String args[]) {
+    Game game = new Game();
+    JFrame frame = new JFrame();
+    frame.add(game);
+    frame.pack();
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setTitle("Space Game");
+    frame.setLocationRelativeTo(null);
+    frame.setVisible(true);
+  {
 }
