@@ -1,5 +1,6 @@
 package davidjacobgame;
 
+import java.io.File;
 import javax.swing.JFileChooser;
 
 public class GameWindow extends javax.swing.JFrame {
@@ -16,7 +17,6 @@ public class GameWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        editorButton = new javax.swing.JButton();
         newGameButton = new javax.swing.JButton();
         continueButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
@@ -27,14 +27,12 @@ public class GameWindow extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(800, 600));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        editorButton.setText("Editor");
-        editorButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editorButtonActionPerformed(evt);
+        newGameButton.setText("New Game");
+        newGameButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                newGameButtonMouseClicked(evt);
             }
         });
-
-        newGameButton.setText("New Game");
         newGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newGameButtonActionPerformed(evt);
@@ -62,7 +60,6 @@ public class GameWindow extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(editorButton)
                     .addComponent(newGameButton)
                     .addComponent(continueButton)
                     .addComponent(exitButton))
@@ -71,9 +68,7 @@ public class GameWindow extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(editorButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(40, 40, 40)
                 .addComponent(newGameButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(continueButton)
@@ -100,12 +95,10 @@ public class GameWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void editorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editorButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editorButtonActionPerformed
-
     private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
-        // TODO add your handling code here:
+        removeAll();
+        Editor = new Editor;
+        Editor.start();
     }//GEN-LAST:event_newGameButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -131,40 +124,17 @@ public class GameWindow extends javax.swing.JFrame {
        int returnVal = fc.showOpenDialog(continueButton);        // TODO add your handling code here:
     }//GEN-LAST:event_continueButtonActionPerformed
 
+    private void newGameButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newGameButtonMouseClicked
+        
+    }//GEN-LAST:event_newGameButtonMouseClicked
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /*
-         * Set the Nimbus look and feel
-         */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the
-         * default look and feel. For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /*
-         * Create and display the form
-         */
+        
+        File f = new File("C:\\SpaceGame");
+        f.mkdir();
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
@@ -174,7 +144,6 @@ public class GameWindow extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton continueButton;
-    private javax.swing.JButton editorButton;
     private javax.swing.JButton exitButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton newGameButton;
